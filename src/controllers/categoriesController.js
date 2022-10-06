@@ -1,4 +1,3 @@
-const { get } = require('../app')
 const getConnection = require('../model/db')
 
 const getAllCategory = async (req, res) => {
@@ -24,8 +23,8 @@ const getCategoryById = async (req, res) => {
 
 const addCategory = async (req, res) => {
     try {
-        const { categoryName } = req.body
-        const category = { categoryName }
+        const { category_name } = req.body
+        const category = { category_name }
         const connection = await getConnection()
         let result = await connection.query("INSERT INTO categories set ?", category)
         res.status(201).json({ message: "Category was created" });
@@ -37,9 +36,9 @@ const addCategory = async (req, res) => {
 const updateCategory = async (req, res) => {
     try {
         const { id_c } = req.params
-        const { name } = req.body
+        const { category_name } = req.body
 
-        const category = { name }
+        const category = { category_name }
         const connection = await getConnection()
         const result = await connection.query("UPDATE categories SET ? WHERE id_c = ?", [category, id_c])
         res.status(201).json({ message: "Category was updated" });
@@ -50,9 +49,12 @@ const updateCategory = async (req, res) => {
 
 const deleteCategory = async (req, res) => {
     try {
-
+        const { id_c } = req.params
+        const connection = await getConnection()
+        const result = await connection.query("DELETE FROM categories WHERE id_c = ?", id_c)
+        res.json({ message: "Category deleted" })
     } catch (error) {
-
+        res.status(500).json(console.log(error))
     }
 }
 
@@ -60,5 +62,6 @@ module.exports = {
     getAllCategory,
     getCategoryById,
     addCategory,
-    updateCategory
+    updateCategory,
+    deleteCategory
 }
