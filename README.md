@@ -1,19 +1,39 @@
-<h1 align="center" id="title">Node-Project</h1>
-<br/>
-<p id="description">Proyecto NodeJs con Mysql para Vortex Akademi</p>
 
-<h2>🛠️ Installation Steps:</h2>
+# NodeJs - Vortex Akademi
+Proyecto para Vortex - Akademi
 
-<p>1. Npm install</p>
 
-<p>2. Npm start</p>
+## Environment Variables
 
-  
-  
-<h2>💻 Built with</h2>
+Para poder correr el proyecto deje un (.ENV.EXAMPLE) para que tengan la referencia de los datos que se usan. 
 
-Technologies used in the project:
+`HOST`
 
-*   NodeJs
-*   Mysql
-*   Express
+`DB`
+
+`USER`
+
+`PASSOWRD`
+
+`PORT`
+
+
+## Deployment
+
+Comandos para inciar el proyecto
+
+```bash
+  npm install
+```
+
+```bash
+  npm start
+```
+
+## 💻 Built with
+
+NodeJs
+
+Mysql
+
+Express
