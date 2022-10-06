@@ -2,7 +2,8 @@ const express = require('express')
 const morgan = require('morgan')
 
 // Routes
-const rootRouter = require('./routes/productsRoutes')
+const productsRoutes = require('./routes/productsRoutes')
+const categoryRoutes = require('./routes/categoryRoutes')
 const app = express()
 
 // Settings
@@ -13,6 +14,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 
 // Routes
-app.use('/api', rootRouter)
+app.use('/api/products', productsRoutes)
+app.use('/api/category', categoryRoutes)
 
 module.exports = app
