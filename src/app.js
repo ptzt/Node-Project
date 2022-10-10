@@ -1,11 +1,10 @@
 const express = require('express')
 const morgan = require('morgan')
+const routes = require('./routes')
 
 require("dotenv").config()
 
 // Routes
-const productsRoutes = require('./routes/productsRoutes')
-const categoryRoutes = require('./routes/categoryRoutes')
 const app = express()
 
 // Settings
@@ -16,7 +15,6 @@ app.use(morgan('dev'))
 app.use(express.json())
 
 // Routes
-app.use('/api/products', productsRoutes)
-app.use('/api/category', categoryRoutes)
+app.use('/api', routes)
 
 module.exports = app
