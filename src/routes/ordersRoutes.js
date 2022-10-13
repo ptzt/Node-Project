@@ -5,6 +5,7 @@ router
     .route('/')
     .get(ordersController.getAllOrders)
     .post(ordersController.createOrder)
+    .delete(ordersController.deleteProduct)
 
 router
     .route('/:id_order')
